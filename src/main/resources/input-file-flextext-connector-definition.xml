@@ -1,0 +1,39 @@
+<connectorDefinition label="${com.esri.geoevent.adapter.flextext-adapter.INPUT_FILE_CONNNECTOR_LABEL}" name="esri-in-folder-flex-csv" type="inbound">
+	<description>${com.esri.geoevent.adapter.flextext-adapter.INPUT_FILE_CONNNECTOR_DESC}
+	</description>
+	<defaultName>file-flexcsv-in</defaultName>
+	<transport uri="com.esri.ges.transport.inbound/File/${project.version}" />
+	<adapter uri="com.esri.geoevent.adapter.inbound/flextext-adapter/${project.version}" />
+	<properties>
+		<advanced>
+			<property name="MessageSeparator" source="adapter" default="\n" />
+			<property name="AttributeSeparator" source="adapter" default="," />
+			<property name="CustomDateFormat" source="adapter" />
+			<property name="LocaleForNumberFormatter" source="adapter" />
+			<property name="inputRecursivelyScan" source="transport" default="true" />
+			<property name="inputDeleteFiles" source="transport" default="false" />
+			<property name="inputBatchMaxLinesCount" source="transport" default="1000" />
+			<property name="inputBatchFlushIntervalInMS" source="transport" default="500" />
+		</advanced>
+		<hidden>
+			<property name="CreateUnrecognizedGeoEventDefinitions" source="adapter" default="true" />
+			<property name="IncomingDataContainsGeoEventDefinition" source="adapter" default="false" />
+			<property name="CreateFixedGeoEventDefinitions" source="adapter" default="false" />
+			<property name="NewFixedGeoEventDefinitionName" source="adapter" />
+			<property name="inputUseFileNamesAsChannelID" source="transport" default="false" />
+			<property name="inputIsTextFile" source="transport" default="true" />
+		</hidden>
+		<shown>
+			<property name="inputFolderDataStore" source="transport" default="input" />
+			<property name="inputDirectory" source="transport" default="input" />
+			<property name="inputFileFilter" source="transport" default=".*\.csv" />
+			<property name="inputSkipFirstLinesCount" source="transport" default="0" />
+			<property name="ExistingFixedGeoEventDefinitionName" source="adapter" />
+			<property name="SpatialReferenceField" source="adapter" />
+			<property name="BuildGeometryFromFields" source="adapter" default="false" />
+			<property name="XGeometryField" source="adapter" />
+			<property name="YGeometryField" source="adapter" />
+			<property name="ZGeometryField" source="adapter" />
+		</shown>
+	</properties>
+</connectorDefinition>

@@ -1,0 +1,39 @@
+<adapter name="flextext-adapter" label="${com.esri.geoevent.adapter.flextext-adapter.ADAPTER_IN_LABEL}" domain="${project.groupId}.inbound" type="inbound">
+	<description>${com.esri.geoevent.adapter.flextext-adapter.ADAPTER_IN_DESC}</description>
+	<propertyDefinitions>
+		<propertyDefinition propertyName="CreateUnrecognizedGeoEventDefinitions" label="${com.esri.geoevent.adapter.flextext-adapter.CREATE_NEW_UNRECOGNIZED_GED_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.CREATE_NEW_UNRECOGNIZED_GED_DESC}"
+			propertyType="Boolean" defaultValue="false" mandatory="false" readOnly="false" dependsOn="IncomingDataContainsGeoEventDefinition=true" />
+		<propertyDefinition propertyName="MessageSeparator" label="${com.esri.geoevent.adapter.flextext-adapter.MESSAGE_SEPERATOR_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.MESSAGE_SEPERATOR_DESC}" propertyType="String" defaultValue="\n"
+			mandatory="false" readOnly="false" />
+		<propertyDefinition propertyName="AttributeSeparator" label="${com.esri.geoevent.adapter.flextext-adapter.ATTRIBUTE_SEPERATOR_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.ATTRIBUTE_SEPERATOR_DESC}" propertyType="String"
+			defaultValue="," mandatory="true" readOnly="false" />
+		<propertyDefinition propertyName="IncomingDataContainsGeoEventDefinition" label="${com.esri.geoevent.adapter.flextext-adapter.INCOMING_DATA_CONTAINS_GED_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.INCOMING_DATA_CONTAINS_GED_DESC}"
+			propertyType="Boolean" defaultValue="true" mandatory="false" readOnly="false" />
+		<propertyDefinition propertyName="CreateFixedGeoEventDefinitions" label="${com.esri.geoevent.adapter.flextext-adapter.CREATE_NEW_GED_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.CREATE_NEW_GED_DESC}" propertyType="Boolean"
+			defaultValue="false" mandatory="false" readOnly="false" dependsOn="IncomingDataContainsGeoEventDefinition=false" />
+		<propertyDefinition propertyName="NewFixedGeoEventDefinitionName" label="${com.esri.geoevent.adapter.flextext-adapter.NEW_GED_NAME_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.NEW_GED_NAME_DESC}" propertyType="String"
+			defaultValue="" mandatory="false" readOnly="false" dependsOn="CreateFixedGeoEventDefinitions=true" />
+		<propertyDefinition propertyName="ExistingFixedGeoEventDefinitionName" label="${com.esri.geoevent.adapter.flextext-adapter.EXISTING_GED_NAME_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.EXISTING_GED_NAME_DESC}"
+			propertyType="GeoEventDefinition" defaultValue="" mandatory="false" readOnly="false" dependsOn="CreateFixedGeoEventDefinitions=false" />
+		<propertyDefinition propertyName="BuildGeometryFromFields" label="${com.esri.geoevent.adapter.flextext-adapter.BUILD_GEOMETRY_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.BUILD_GEOMETRY_DESC}" propertyType="Boolean"
+			defaultValue="false" mandatory="false" readOnly="false" />
+		<propertyDefinition propertyName="XGeometryField" label="${com.esri.geoevent.adapter.flextext-adapter.X_GEOM_FIELD_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.X_GEOM_FIELD_DESC}" propertyType="String" defaultValue=""
+			mandatory="false" readOnly="false" dependsOn="ExistingFixedGeoEventDefinitionName,BuildGeometryFromFields=true">
+			<!-- <allowedValues> <value label="Double">Double:One</value> <value label="Float">Float:One</value> <value label="Integer">Integer:One</value> <value label="Long">Long:One</value> <value label="Short">Short:One</value> <value label="Geometry">Geometry:One</value> </allowedValues> -->
+		</propertyDefinition>
+		<propertyDefinition propertyName="YGeometryField" label="${com.esri.geoevent.adapter.flextext-adapter.Y_GEOM_FIELD_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.Y_GEOM_FIELD_DESC}" propertyType="String" defaultValue=""
+			mandatory="false" readOnly="false" dependsOn="ExistingFixedGeoEventDefinitionName,BuildGeometryFromFields=true">
+			<!-- <allowedValues> <value label="Double">Double:One</value> <value label="Float">Float:One</value> <value label="Integer">Integer:One</value> <value label="Long">Long:One</value> <value label="Short">Short:One</value> <value label="Geometry">Geometry:One</value> </allowedValues> -->
+		</propertyDefinition>
+		<propertyDefinition propertyName="ZGeometryField" label="${com.esri.geoevent.adapter.flextext-adapter.Z_GEOM_FIELD_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.Z_GEOM_FIELD_DESC}" propertyType="String" defaultValue=""
+			mandatory="false" readOnly="false" dependsOn="ExistingFixedGeoEventDefinitionName,BuildGeometryFromFields=true">
+			<!-- <allowedValues> <value label="Double">Double:One</value> <value label="Float">Float:One</value> <value label="Integer">Integer:One</value> <value label="Long">Long:One</value> <value label="Short">Short:One</value> <value label="Geometry">Geometry:One</value> </allowedValues> -->
+		</propertyDefinition>
+		<propertyDefinition propertyName="SpatialReferenceField" label="${com.esri.geoevent.adapter.flextext-adapter.SPATIAL_REFERENCE_FIELD_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.SPATIAL_REFERENCE_FIELD_DESC}" propertyType="String"
+			defaultValue="" mandatory="false" readOnly="false" />
+		<propertyDefinition propertyName="CustomDateFormat" label="${com.esri.geoevent.adapter.flextext-adapter.CUSTOM_DATE_FORMAT_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.CUSTOM_DATE_FORMAT_DESC}" propertyType="String" defaultValue=""
+			mandatory="false" readOnly="false" />
+		<propertyDefinition propertyName="LocaleForNumberFormatter" label="${com.esri.geoevent.adapter.flextext-adapter.LOCALE_FOR_NUMBER_FORMATTER_LBL}" description="${com.esri.geoevent.adapter.flextext-adapter.LOCALE_FOR_NUMBER_FORMATTER_DESC}"
+			propertyType="String" defaultValue="" mandatory="false" readOnly="false" />
+	</propertyDefinitions>
+</adapter>

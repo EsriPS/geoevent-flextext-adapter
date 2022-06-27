@@ -1,0 +1,35 @@
+<connectorDefinition label="${com.esri.geoevent.adapter.flextext-adapter.INPUT_TCP_CONNNECTOR_LABEL}" name="esri-in-tcp-flextext-generictext" type="inbound">
+	<description>${com.esri.geoevent.adapter.flextext-adapter.INPUT_TCP_CONNNECTOR_DESC}
+	</description>
+	<defaultName>tcp-flextext-in</defaultName>
+	<transport uri="com.esri.ges.transport.inbound/TCP/${project.version}" />
+	<adapter uri="com.esri.geoevent.adapter.inbound/flextext-adapter/${project.version}" />
+	<properties>
+		<advanced>
+			<property name="CustomDateFormat" source="adapter" />
+			<property name="LocaleForNumberFormatter" source="adapter" />
+		</advanced>
+		<hidden>
+			<property name="clientConnectionTimeout" source="transport" default="60" />
+			<property name="handshake" source="transport" />
+			<property name="MessageSeparator" source="adapter" default="\n" />
+			<property name="AttributeSeparator" source="adapter" default="," />
+			<property name="useEscapeCharactersInHandshake" source="transport" default="true" />
+			<property name="NewFixedGeoEventDefinitionName" source="adapter" />
+			<property name="CreateFixedGeoEventDefinitions" source="adapter" default="false" />
+			<property name="IncomingDataContainsGeoEventDefinition" source="adapter" default="false" />
+			<property name="CreateUnrecognizedGeoEventDefinitions" source="adapter" default="true" />
+			<property name="mode" source="transport" default="SERVER" />
+			<property name="host" source="transport" default="localhost" />
+		</hidden>
+		<shown>
+			<property name="port" source="transport" default="5565" />
+			<property name="ExistingFixedGeoEventDefinitionName" source="adapter" />
+			<property name="SpatialReferenceField" source="adapter" />
+			<property name="BuildGeometryFromFields" source="adapter" default="false" />
+			<property name="XGeometryField" source="adapter" />
+			<property name="YGeometryField" source="adapter" />
+			<property name="ZGeometryField" source="adapter" />
+		</shown>
+	</properties>
+</connectorDefinition>
