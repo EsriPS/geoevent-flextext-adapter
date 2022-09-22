@@ -231,7 +231,7 @@ public class TextInboundAdapter extends InboundAdapterBase implements TextAdapte
         // CSVParser parser = new CSVParserBuilder().withSeparator(attributeSeparator).build();
         lastLine = message.trim();
 
-        String[] elems = lastLine.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+        String[] elems = lastLine.split(attributeSeparator+"(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
         if (LOGGER.isTraceEnabled())
           LOGGER.trace("Split line with {0} elements to : {1}", Arrays.toString(elems));
         for (int elemsIndex = 0; elemsIndex < elems.length; elemsIndex++)
